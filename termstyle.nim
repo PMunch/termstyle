@@ -38,12 +38,12 @@ const
   termBgCyan* = "\e[46m"
   termBgWhite* = "\e[47m"
   termClear* = "\e[0m"
-  termBold = "\e[1m"
-  termItalic = "\e[3m"
-  termUnderline = "\e[4m"
-  termBlink = "\e[5m"
-  termNegative = "\e[7m"
-  termStrikethrough = "\e[9m"
+  termBold* = "\e[1m"
+  termItalic* = "\e[3m"
+  termUnderline* = "\e[4m"
+  termBlink* = "\e[5m"
+  termNegative* = "\e[7m"
+  termStrikethrough* = "\e[9m"
 
 template addEnd(ss: varargs[string, `$`]): untyped =
   for s in ss:
