@@ -44,10 +44,10 @@ const
   termBlink* = "\e[5m"
   termNegative* = "\e[7m"
   termStrikethrough* = "\e[9m"
-  termInfo* = "\e[37m\u2139 "
-  termSuccess* = "\e[32m\u2713 "
-  termWarn* = "\e[33m\u26A0 "
-  termError* = "\e[31m\u2717 "
+  termInfo* = "\e[37m[\u2139] "
+  termSuccess* = "\e[32m[\u2713] "
+  termWarn* = "\e[33m[\u26A0] "
+  termError* = "\e[31m[\u2717] "
   
 template addEnd(ss: varargs[string, `$`]): untyped =
   for s in ss:
