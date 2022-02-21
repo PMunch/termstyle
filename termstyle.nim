@@ -44,7 +44,11 @@ const
   termBlink* = "\e[5m"
   termNegative* = "\e[7m"
   termStrikethrough* = "\e[9m"
-
+  termInfo* = "\e[37m[\u2139] "
+  termSuccess* = "\e[32m[\u2713] "
+  termWarn* = "\e[33m[\u26A0] "
+  termError* = "\e[31m[\u2717] "
+  
 template addEnd(ss: varargs[string, `$`]): untyped =
   for s in ss:
     result &= s
@@ -164,4 +168,24 @@ proc style*(ss: varargs[string, `$`], style: string): string =
   ## Sets a custom style (Actually just appends ``style`` and ends the
   ## string with a clear style command)
   result = style
+  addEnd(ss)
+
+proc info*(ss: varargs[string, `$`]): string =
+  ## Prepends info symbol and colors text white
+  result = termInfo
+  addEnd(ss)
+
+proc success*(ss: varargs[string, `$`]): string =
+  ## Prepends success symbol and colors text green
+  result = termSuccess
+  addEnd(ss)
+
+proc warning*(ss: varargs[string, `$`]): string =
+  ## Prepends warning symbol and colors text yellow
+  result = termWarn
+  addEnd(ss)
+  
+proc error*(ss: varargs[string, `$`]): string =
+  ## Prepends error symbol and colors text red
+  result = termError
   addEnd(ss)
